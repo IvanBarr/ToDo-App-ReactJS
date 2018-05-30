@@ -1,0 +1,277 @@
+body{
+  background: rgb(26, 26, 68);
+}
+
+.App {
+  max-width: 450px;
+  height: 700px;
+  background: lightgrey;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+
+// HEADER
+.header{
+  background: white;
+  overflow: hidden;
+  padding: 40px;
+
+  .MyDay{
+    width: 50%;
+    float: left;
+    h2{
+      font-size: 40px;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #828282;
+    }
+    p{
+      font-family: 'Roboto', sans-serif;
+      margin-left: 5px;
+    }
+  }
+
+  .todos-left{
+    width: 50%;
+    float: left;
+    p{
+      font-size: 25px;
+      text-align: center;
+      margin-top: 40px;
+      color: grey;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+}
+
+// ADD ITEM FORM
+
+.addItemForm{
+  background: white;
+  .inputs{
+    margin: 0 auto;
+    width: 75%;
+    overflow: hidden;
+    // background: red;
+    position: relative;
+    input{
+      padding: 18px;
+      display: inline-block;
+      margin: 15px 0;
+      border-radius: 30px;
+      outline: none;
+      border: none;
+      font-family: 'Roboto Mono', monospace;
+    }
+    .itemInput{
+      width: calc(85% - 5px);
+      float: left;
+      margin-right: 5px;
+      box-shadow: inset 0px 0px 3px -1px black;
+    }
+    .timeInput{
+      width: 12%;
+      position: absolute;
+      right: 0px;
+      background: rgb(24, 197, 255);
+      color: white;
+      text-align: center
+    }
+  }
+
+  button{
+    width: 100%;
+    background: rgb(24, 197, 255);
+    border: 0;
+    padding: 20px 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    margin-top: 30px;
+    transition: background 400ms ease-in-out;
+    &:hover{
+      background: rgb(0, 171, 238);
+    }
+  }
+}
+
+
+// EDIT ITEM FORM
+.editItemForm{
+  width: 400px;
+  background: white;
+  box-shadow: 0px 0px 64px 3px rgba(0,0,0,0.75);
+  padding: 30px 0;
+  z-index: 999;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  .editInput{
+    padding: 10px;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+    border: 1px solid rgb(24, 197, 255);
+  }
+  .editItem_btns{
+    width: 170px;
+    background: red;
+    margin: 0 auto;
+    button{
+      padding: 10px;
+      border: none;
+      color: white;
+      width: 80px;
+      outline: none;
+      cursor: pointer;
+    }
+    .cancleEdit_btn{
+      float: left;
+    }
+    .saveEdit_btn{
+      float: right;
+      background: #35E880;
+    }
+  }
+}
+
+// TO DO LIST
+.toDoList{
+  margin: 0;
+  padding: 0;
+  width: 103.5%;
+  height: 435px;
+  overflow: scroll;
+  li{
+    box-sizing :border-box;
+    width: 100%;
+    padding: 18px 0 18px 18px;
+    margin: 5px 0;
+    background: white;
+    overflow: hidden;
+    list-style: none;
+    font-size: 18px;
+    color: rgb(116, 116, 116);
+    font-family: 'Roboto Mono', monospace;
+    transition: transform 300ms ease-in-out;
+    &:hover{
+      transform: scale(1.03);
+    }
+
+    .itemTime{
+      display: inline-block;
+      width: 35px;
+      padding: 5px 15px 0 5px;
+      margin-right: 10px;
+      color: rgb(173, 173, 173);
+      font-size: 15px;
+      margin-left: -5px;
+    }
+    button{
+      float: right;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      width: 60px;
+      .fas{
+        transition: transform 200ms ease-in-out;
+      }
+      &:hover{
+        .fas{
+          transform: scale(0.8);
+        }
+      }
+    }
+    .edit{
+      position: relative;
+      color: #C4C4C4;
+      &:before{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        content: '';
+        height: 8px;
+        width: 1px;
+        background: lightblue;
+      }
+    }
+    .delete{
+      color: #FF7C7C;
+      position: relative;
+      &:before{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        content: '';
+        height: 8px;
+        width: 1px;
+        background: lightblue;
+      }
+    }
+    .finished{
+      color:#35E880;
+    }
+  }
+}
+
+// FOR ADDING AND DELETING ITEMS
+.slideIn-enter {
+  opacity: 0;
+  transform: rotateX(-100deg);
+}
+
+.slideIn-enter.slideIn-enter-active {
+  transform: rotateX(0);
+  opacity: 1;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.slideIn-leave {
+  width: auto;
+  height: auto;
+  opacity: 1;
+
+}
+
+.slideIn-leave.slideIn-leave-active {
+  width: 200px;
+  height: 60px;
+  opacity: 0;
+  transition: width 500ms ease-in-out, opacity 400ms ease-in-out;
+}
+
+
+
+// FIR EDIT ITEM FORM
+.popIn-enter {
+  opacity: 0;
+  transform: rotateX(-100deg) translateX(-50%);
+}
+
+.popIn-enter.popIn-enter-active {
+  transform: rotateX(0) translateX(-50%);
+  opacity: 1;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.popIn-leave {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.popIn-leave.popIn-leave-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}

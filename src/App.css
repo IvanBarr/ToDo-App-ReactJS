@@ -1,0 +1,217 @@
+body {
+  background: #1a1a44; }
+
+.App {
+  max-width: 450px;
+  height: 700px;
+  background: lightgrey;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 20px; }
+
+.header {
+  background: white;
+  overflow: hidden;
+  padding: 40px; }
+  .header .MyDay {
+    width: 50%;
+    float: left; }
+    .header .MyDay h2 {
+      font-size: 40px;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #828282; }
+    .header .MyDay p {
+      font-family: 'Roboto', sans-serif;
+      margin-left: 5px; }
+  .header .todos-left {
+    width: 50%;
+    float: left; }
+    .header .todos-left p {
+      font-size: 25px;
+      text-align: center;
+      margin-top: 40px;
+      color: grey;
+      font-family: 'Roboto', sans-serif; }
+
+.addItemForm {
+  background: white; }
+  .addItemForm .inputs {
+    margin: 0 auto;
+    width: 75%;
+    overflow: hidden;
+    position: relative; }
+    .addItemForm .inputs input {
+      padding: 18px;
+      display: inline-block;
+      margin: 15px 0;
+      border-radius: 30px;
+      outline: none;
+      border: none;
+      font-family: 'Roboto Mono', monospace; }
+    .addItemForm .inputs .itemInput {
+      width: calc(85% - 5px);
+      float: left;
+      margin-right: 5px;
+      box-shadow: inset 0px 0px 3px -1px black; }
+    .addItemForm .inputs .timeInput {
+      width: 12%;
+      position: absolute;
+      right: 0px;
+      background: #18c5ff;
+      color: white;
+      text-align: center; }
+  .addItemForm button {
+    width: 100%;
+    background: #18c5ff;
+    border: 0;
+    padding: 20px 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    margin-top: 30px;
+    transition: background 400ms ease-in-out; }
+    .addItemForm button:hover {
+      background: #00abee; }
+
+.editItemForm {
+  width: 400px;
+  background: white;
+  box-shadow: 0px 0px 64px 3px rgba(0, 0, 0, 0.75);
+  padding: 30px 0;
+  z-index: 999;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  border-radius: 15px; }
+  .editItemForm .editInput {
+    padding: 10px;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+    border: 1px solid #18c5ff; }
+  .editItemForm .editItem_btns {
+    width: 170px;
+    background: red;
+    margin: 0 auto; }
+    .editItemForm .editItem_btns button {
+      padding: 10px;
+      border: none;
+      color: white;
+      width: 80px;
+      outline: none;
+      cursor: pointer; }
+    .editItemForm .editItem_btns .cancleEdit_btn {
+      float: left; }
+    .editItemForm .editItem_btns .saveEdit_btn {
+      float: right;
+      background: #35E880; }
+
+.toDoList {
+  margin: 0;
+  padding: 0;
+  width: 103.5%;
+  height: 435px;
+  overflow: scroll; }
+  .toDoList li {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 18px 0 18px 18px;
+    margin: 5px 0;
+    background: white;
+    overflow: hidden;
+    list-style: none;
+    font-size: 18px;
+    color: #747474;
+    font-family: 'Roboto Mono', monospace;
+    transition: transform 300ms ease-in-out; }
+    .toDoList li:hover {
+      transform: scale(1.03); }
+    .toDoList li .itemTime {
+      display: inline-block;
+      width: 35px;
+      padding: 5px 15px 0 5px;
+      margin-right: 10px;
+      color: #adadad;
+      font-size: 15px;
+      margin-left: -5px; }
+    .toDoList li button {
+      float: right;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      width: 60px; }
+      .toDoList li button .fas {
+        transition: transform 200ms ease-in-out; }
+      .toDoList li button:hover .fas {
+        transform: scale(0.8); }
+    .toDoList li .edit {
+      position: relative;
+      color: #C4C4C4; }
+      .toDoList li .edit:before {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        content: '';
+        height: 8px;
+        width: 1px;
+        background: lightblue; }
+    .toDoList li .delete {
+      color: #FF7C7C;
+      position: relative; }
+      .toDoList li .delete:before {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        content: '';
+        height: 8px;
+        width: 1px;
+        background: lightblue; }
+    .toDoList li .finished {
+      color: #35E880; }
+
+.slideIn-enter {
+  opacity: 0;
+  transform: rotateX(-100deg); }
+
+.slideIn-enter.slideIn-enter-active {
+  transform: rotateX(0);
+  opacity: 1;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out; }
+
+.slideIn-leave {
+  width: auto;
+  height: auto;
+  opacity: 1; }
+
+.slideIn-leave.slideIn-leave-active {
+  width: 200px;
+  height: 60px;
+  opacity: 0;
+  transition: width 500ms ease-in-out, opacity 400ms ease-in-out; }
+
+.popIn-enter {
+  opacity: 0;
+  transform: rotateX(-100deg) translateX(-50%); }
+
+.popIn-enter.popIn-enter-active {
+  transform: rotateX(0) translateX(-50%);
+  opacity: 1;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out; }
+
+.popIn-leave {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out; }
+
+.popIn-leave.popIn-leave-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out; }
