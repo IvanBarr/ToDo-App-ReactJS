@@ -110,7 +110,7 @@ class App extends Component {
 
   closeEdit(){
     this.setState({
-      isHidden: true
+      isHidden: true,
     })
   }
 
@@ -120,11 +120,12 @@ class App extends Component {
       isHidden: true
     })
     var newItemValue = newValue;
-                                          
-    this.setState({
-      itemToEdit: this.state.itemToEdit.value = newItemValue,
-      item: this.state.itemToEdit
-    })
+    if(newItemValue.length > 1){
+      this.setState({
+        itemToEdit: this.state.itemToEdit.value = newItemValue,
+        item: this.state.itemToEdit
+      })
+    }                                      
   }
 
   countToDosLeft(index){
